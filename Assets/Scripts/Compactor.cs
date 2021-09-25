@@ -48,13 +48,11 @@ public class Compactor : MonoBehaviour
         {
             firstSideTarget = new Vector3(centerPoint.position.x, firstSide.position.y, firstSide.position.z);
             otherSideTarget = new Vector3(centerPoint.position.x, otherSide.position.y, otherSide.position.z);
-            Debug.Log("1: " + firstSideTarget);
 
             //We want the target to be where the edges of the blocks (not the centers) meet;
             firstSideTarget = Vector3.MoveTowards(firstSideTarget, firstSide.position, firstSide.localScale.x / 2);
             otherSideTarget = Vector3.MoveTowards(otherSideTarget, otherSide.position, otherSide.localScale.x / 2);
 
-            Debug.Log("2: " + firstSideTarget);
         }
         else
         {
