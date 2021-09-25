@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestBlackLit
-  m_Shader: {fileID: 4800000, guid: 429b4190b80c56b4ea8ea6915e38b376, type: 3}
+  m_Name: TestShader
+  m_Shader: {fileID: -6465566751694194690, guid: 1d3a2096af24d10478bdde9f084a8790, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -55,45 +55,41 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _ColorDistance: 1
-    - _ColorEnd: 0.19
-    - _ColorEndA: 0.65
-    - _ColorEndAB: 0.8
-    - _ColorEndB: 0
-    - _ColorEndBC: 1
-    - _ColorStart: 0
-    - _ColorStartA: 0.36
-    - _ColorStartAB: 1
-    - _ColorStartB: 0
-    - _ColorStartBC: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Distance: 93
-    - _DistanceA: 1
-    - _DistanceB: 1
+    - _Distance: 45.1
     - _DstBlend: 0
+    - _Gloss: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Metallic: 0.66
+    - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold: 0
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorA: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
-    - _ColorB: {r: 0.04705883, g: 0.13333334, b: 0.32941177, a: 1}
-    - _ColorC: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 1}
-    - _ColorDistance: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorTrue: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorA: {r: 0.10679346, g: 0.10110357, b: 0.11320752, a: 1}
+    - _ColorB: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
