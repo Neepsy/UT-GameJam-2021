@@ -13,6 +13,9 @@ public class TeleportingPlatform : MonoBehaviour
     [Tooltip("Radius around starting point that teleports are allowed")]
     public float radius;
 
+    [Tooltip("Only teleport once on awake, ignores interval")]
+    public bool singleTP;
+
     private Vector3 startPoint;
     private bool isPlaying = false;
 
@@ -29,12 +32,14 @@ public class TeleportingPlatform : MonoBehaviour
         }
         
     }
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
         isPlaying = true;
         startPoint = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        StartCoroutine(Delay(Mathf.Round(Random.Range(minInterval, maxInterval) * 100) / 100));
+        float interval = singleTP ? .1f : Mathf.Round(Random.Range(minInterval, maxInterval) * 100) / 100;
+
+        StartCoroutine(Delay(interval));
     }
 
     // Update is called once per frame
@@ -55,12 +60,12 @@ public class TeleportingPlatform : MonoBehaviour
             Vector2 newPos = Random.insideUnitCircle * radius;
             transform.position = new Vector3(newPos.x + startPoint.x, transform.position.y, newPos.y + startPoint.z);
         }
-        else
+
+        if (!singleTP)
         {
-            Debug.Log("TP blocked");
+           StartCoroutine(Delay(Mathf.Round(Random.Range(minInterval, maxInterval) * 100) / 100));
         }
         
-        StartCoroutine(Delay(Mathf.Round(Random.Range(minInterval, maxInterval) * 100) / 100));
 
         yield return null;
     }
