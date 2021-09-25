@@ -5,9 +5,9 @@ Shader "Custom/TestBlackLit"
         _ColorTrue ("True Color", Color) = (1,1,1,1)
         _ColorA ("ColorA", Color) = (1,1,1,1)
         _ColorB ("ColorB", Color) = (1,1,1,1)
-        _ColorStart ("Color Start", Range(0,1)) = 1
-        _ColorEnd ("Color End", Range(0,1))  = 1
-        
+        _ColorStart ("Color Start", Range(-1,1)) = 0.5
+        _ColorEnd ("Color End", Range(-1, 1))  = 0.5
+
         _Distance ("Distance Threshold", Float) = 1
         _Threshold ("Threshold", Range(0.0, 1.0)) = 1
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
@@ -39,9 +39,12 @@ Shader "Custom/TestBlackLit"
         float4 _ColorTrue;
         float4 _ColorA;
         float4 _ColorB;
+
         float1 _ColorStart;
         float1 _ColorEnd;
-        float4 _distanceColor;
+
+        float4 _ColorDistance;
+
         float1 _Distance;
         float1 _Threshold;
 
@@ -62,12 +65,17 @@ Shader "Custom/TestBlackLit"
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
 
+            float4 trueDistance = distance(_WorldSpaceCameraPos, IN.worldPos) / _Distance; 
+            //float2 uvShadingTest = IN.uv_MainTex;
+            
+
             float4 fadeDistance = saturate(distance(_WorldSpaceCameraPos, IN.worldPos) / _Distance); 
             //float2 uvShadingTest = IN.uv_MainTex;
 
-            float4 boundedGradient = InverseLerp(_ColorStart, _ColorEnd, fadeDistance);
+            float4 boundedGradient = InverseLerp(_ColorStart, _ColorEnd, saturate(fadeDistance));
 
             float4 outColor = saturate(lerp(_ColorA, _ColorB, boundedGradient));
+
 
             o.Albedo =  saturate (_ColorTrue * c.rgb * outColor.rgb);
             // Metallic and smoothness come from slider variables
