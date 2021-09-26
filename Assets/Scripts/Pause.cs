@@ -10,7 +10,7 @@ public class Pause : MonoBehaviour
     private GameObject pauseScreen;
   
 
-    private bool paused = false;
+    //private bool paused = false;
 
   /*  void Update()
     {
@@ -22,12 +22,23 @@ public class Pause : MonoBehaviour
 
     public void TogglePauseScreen()
     {
-        paused = !paused;
-        pauseScreen.SetActive(!pauseScreen.activeSelf);
+        // paused = !paused;
+
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0;
+            pauseScreen.SetActive(false);
+        }
+        else if (Time.timeScale == 0)
+        {
+            Debug.Log("high");
+            Time.timeScale = 1;
+            pauseScreen.SetActive(true);
+        }
         
         
 
-        if (!paused)
+      /*   if (!paused)
         {
             Time.timeScale = 0.0f;
             pauseScreen.SetActive(false);
@@ -36,7 +47,7 @@ public class Pause : MonoBehaviour
         {
             Time.timeScale = 1.0f;
             pauseScreen.SetActive(true);
-        }
+        }*/
     }
 
     public void ReturnToMainMenu()
