@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class GameManager : MonoBehaviour
     private GameObject player;
 
     public static GameManager INSTANCE;
+
+    public Canvas fadeCanvas;
+    public Image fadeBlackImage;
+    public Image fadeWhiteImage;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +40,11 @@ public class GameManager : MonoBehaviour
         {
             antiTeleportBubble = player.GetComponent<SphereCollider>();
         }
+
+        fadeWhiteImage.CrossFadeAlpha(0.0f, 0f, true);
+        fadeBlackImage.CrossFadeAlpha(0.0f, 0f, true);
+        fadeCanvas.enabled = true;
+        DontDestroyOnLoad(fadeCanvas);
     }
 
     public static GameManager get()
@@ -68,12 +79,53 @@ public class GameManager : MonoBehaviour
     // Returns if point is inside bubble around player in which platforms cannot teleport.
     public bool insideAntiTeleportBubble(Vector3 pos)
     {
-        if(antiTeleportBubble != null)
+        if (antiTeleportBubble == true)
         {
-            return antiTeleportBubble.bounds.Contains(pos);
+            antiTeleportBubble = GameObject.FindGameObjectWithTag("Player").GetComponent<SphereCollider>();
+            if (antiTeleportBubble != null)
+            {
+                return antiTeleportBubble.bounds.Contains(pos);
+            }
         }
-
+        
         Debug.LogWarning("Make sure GameManager's Anti Teleport Bubble is assigned, and that a sphere collider is on the player!");
         return false;
+    }
+
+    public void loadScene(int sceneIndex, bool fadeWhite)
+    {
+        if ( fadeCanvas ?? fadeWhiteImage ?? fadeBlackImage ?? false)
+        {
+            if (fadeWhite)
+            {
+                fadeWhiteImage.CrossFadeAlpha(1.0f, 2f, true);
+            }
+            else
+            {
+                fadeBlackImage.CrossFadeAlpha(1.0f, 2f, true);
+            }
+        }
+        
+
+        StartCoroutine(fadeInDelay(4f, sceneIndex, fadeWhite));
+    }
+
+    IEnumerator fadeInDelay(float time, int sceneIndex, bool fadeWhite)
+    {
+        yield return new WaitForSecondsRealtime(time / 2f);
+        SceneManager.LoadScene(sceneIndex);
+        yield return new WaitForSecondsRealtime(time / 2f);
+
+        if (fadeCanvas ?? fadeWhiteImage ?? fadeBlackImage ?? false)
+        {
+            if (fadeWhite)
+            {
+                fadeWhiteImage.CrossFadeAlpha(0.0f, 2f, true);
+            }
+            else
+            {
+                fadeBlackImage.CrossFadeAlpha(0.0f, 2f, true);
+            }
+        }
     }
 }
