@@ -1,0 +1,33 @@
+{
+    "name": "AccessPauseMenu",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "45b58ccd-f7ea-45a5-a934-9c5d4a29ef0f",
+            "actions": [
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "8ab05291-eb20-4bf7-a715-c52d13a07a6e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7f2555c5-a081-4e09-a8f7-5eea8123c02a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
