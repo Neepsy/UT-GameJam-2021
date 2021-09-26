@@ -9,7 +9,22 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: b607f92f272e8484fb4ddeb703f6e143
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: 3ffd43e5343695546a3c9522ac57ee7c
+    path: Assets/Scenes/platforming 1.unity
+    guid: d55b3dfe10e790c47a590abaa6c31911
+  - enabled: 1
+    path: Assets/Scenes/PART 2 COMPACTOR.unity
+    guid: 01a6310cc74e2824d8dcfbec36d4f3f9
+  - enabled: 1
+    path: Assets/Platforming 2.unity
+    guid: a26a8eed0a7bfc04583be762288d2b60
+  - enabled: 1
+    path: Assets/Scenes/PART 1 COMPACTOR.unity
+    guid: 70de6a05061ee3143ab7d9f933116c30
+  - enabled: 1
+    path: Assets/Scenes/Santiago's Platforming.unity
+    guid: 1781dc0144589394aa1476c28c93be7a
+  - enabled: 1
+    path: Assets/Scenes/Santiago's Compactor.unity
+    guid: df8c0e93f0c38ba4899a89a29b6ecd3d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

@@ -35,12 +35,16 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Manager Woke Up");
         DontDestroyOnLoad(gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
-        setRespawnPoint(player.transform);
-        if (antiTeleportBubble == null)
-        {
-            antiTeleportBubble = player.GetComponent<SphereCollider>();
-        }
 
+        if (player != null)
+        {
+            setRespawnPoint(player.transform);
+            if (antiTeleportBubble == null)
+            {
+                antiTeleportBubble = player.GetComponent<SphereCollider>();
+            }
+        }
+        
         fadeWhiteImage.CrossFadeAlpha(0.0f, 0f, true);
         fadeBlackImage.CrossFadeAlpha(0.0f, 0f, true);
         fadeCanvas.enabled = true;

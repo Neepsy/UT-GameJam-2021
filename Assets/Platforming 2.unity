@@ -562,6 +562,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7297526723597065919, guid: 2ed6efe19e05ddc4fb26a0d221b493ac, type: 3}
+      propertyPath: sceneIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8251242232826806113, guid: 2ed6efe19e05ddc4fb26a0d221b493ac, type: 3}
       propertyPath: m_Name
       value: ExitCube
