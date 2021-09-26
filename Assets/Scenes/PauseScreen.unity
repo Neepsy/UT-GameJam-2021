@@ -1389,7 +1389,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1158585995}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2083307061}
+        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+        m_MethodName: TogglePauseScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1158585995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2052,8 +2064,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 2103421917}
-  pausebutton: {fileID: 121770417}
-  paused: 0
 --- !u!114 &2083307062
 MonoBehaviour:
   m_ObjectHideFlags: 0
