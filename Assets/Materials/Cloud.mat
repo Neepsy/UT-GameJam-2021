@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cloud
-  m_Shader: {fileID: 4800000, guid: b7839dad95683814aa64166edc107ae2, type: 3}
-  m_ShaderKeywords: _EMISSION _FADING_ON _RECEIVE_SHADOWS_OFF
+  m_Shader: {fileID: 4800000, guid: 8516d7a69675844a7a0b7095af7c46af, type: 3}
+  m_ShaderKeywords: _COLORADDSUBDIFF_ON _EMISSION _FADING_ON _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -22,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: 271edbc011d9e03489f73cef81b2d56a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -46,7 +46,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: d1b932090277f37428c753cf27824d4a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -88,7 +88,7 @@ Material:
     - _CameraNearFadeDistance: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorMode: 0
+    - _ColorMode: 1
     - _Cull: 2
     - _Cutoff: 0.373
     - _DetailAlbedoMapScale: 1
@@ -114,6 +114,7 @@ Material:
     - _QueueOffset: 2
     - _ReceiveShadows: 0
     - _Smoothness: 0.31
+    - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
@@ -125,7 +126,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 0.2221075, g: 0.28811544, b: 0.3207547, a: 1}
-    - _BaseColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
+    - _BaseColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.039215688, g: 0.039215688, b: 0.039215688, a: 1}
