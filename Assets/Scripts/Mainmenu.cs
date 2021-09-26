@@ -1,22 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class Mainmenu : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-	// Start is called before the first frame update
-	public Button yourButton;
+    [SerializeField]
+    private GameObject confirmExit;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleExitConfirm();
+        }
+    }
+    public void StartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 
-	void Start()
-	{
-		Button btn = yourButton.GetComponent<Button>();
-		btn.onClick.AddListener(TaskOnClick);
-	}
+    public void Exit()
+    {
+        Application.Quit();
+    }
 
-	void TaskOnClick()
-	{
-		Application.Quit();
-		Debug.Log("You have clicked the button!");
-	}
+    public void ToggleExitConfirm()
+    {
+        confirmExit.SetActive(!confirmExit.activeSelf);
+    }
 }
