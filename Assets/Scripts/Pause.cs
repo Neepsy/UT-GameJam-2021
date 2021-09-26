@@ -8,46 +8,46 @@ public class Pause : MonoBehaviour
 {
     [SerializeField]
     private GameObject pauseScreen;
-  
 
-    //private bool paused = false;
+    [SerializeField]
+    private bool paused = false;
 
-  /*  void Update()
+    public AccessPauseMenu actionMap;
+
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePauseScreen();
-        }
-    }*/
+        actionMap = new AccessPauseMenu();
+    }
+
+    void Start()
+    {
+        actionMap.Game.Menu.performed += _ => TogglePauseScreen();
+    }
+
+    private void OnEnable()
+    {
+        actionMap.Enable();
+    }
+
+    private void OnDisable()
+    {
+        actionMap.Disable();
+    }
 
     public void TogglePauseScreen()
     {
-        // paused = !paused;
+        pauseScreen.SetActive(!pauseScreen.activeSelf);
 
-        if (Time.timeScale == 1)
+        if (!paused)
         {
-            Time.timeScale = 0;
-            pauseScreen.SetActive(false);
+            Time.timeScale = 0f;
+            paused = true;
         }
-        else if (Time.timeScale == 0)
+        if (paused)
         {
-            Debug.Log("high");
-            Time.timeScale = 1;
-            pauseScreen.SetActive(true);
+            Time.timeScale = 1f;
+            paused = false;
         }
-        
-        
-
-      /*   if (!paused)
-        {
-            Time.timeScale = 0.0f;
-            pauseScreen.SetActive(false);
-        }
-        else
-        {
-            Time.timeScale = 1.0f;
-            pauseScreen.SetActive(true);
-        }*/
     }
 
     public void ReturnToMainMenu()
