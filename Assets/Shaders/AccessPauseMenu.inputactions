@@ -12,6 +12,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "W",
+                    "type": "Button",
+                    "id": "01a526ed-b77e-460a-8ca6-807c253f9812",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -23,6 +31,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7174340-db15-4a58-8628-ed412320b5f8",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "W",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

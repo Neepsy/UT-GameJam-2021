@@ -56,3 +56,9 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Footstep SFX
+    clip: {fileID: 8300000, guid: eb5f07afac1097249b811a065ef070fe, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}

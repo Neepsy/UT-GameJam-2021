@@ -25,6 +25,14 @@ public class @AccessPauseMenu : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""W"",
+                    ""type"": ""Button"",
+                    ""id"": ""01a526ed-b77e-460a-8ca6-807c253f9812"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -38,6 +46,17 @@ public class @AccessPauseMenu : IInputActionCollection, IDisposable
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7174340-db15-4a58-8628-ed412320b5f8"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""W"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -47,6 +66,7 @@ public class @AccessPauseMenu : IInputActionCollection, IDisposable
         // Game
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Menu = m_Game.FindAction("Menu", throwIfNotFound: true);
+        m_Game_W = m_Game.FindAction("W", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -97,11 +117,13 @@ public class @AccessPauseMenu : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Game;
     private IGameActions m_GameActionsCallbackInterface;
     private readonly InputAction m_Game_Menu;
+    private readonly InputAction m_Game_W;
     public struct GameActions
     {
         private @AccessPauseMenu m_Wrapper;
         public GameActions(@AccessPauseMenu wrapper) { m_Wrapper = wrapper; }
         public InputAction @Menu => m_Wrapper.m_Game_Menu;
+        public InputAction @W => m_Wrapper.m_Game_W;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -114,6 +136,9 @@ public class @AccessPauseMenu : IInputActionCollection, IDisposable
                 @Menu.started -= m_Wrapper.m_GameActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnMenu;
+                @W.started -= m_Wrapper.m_GameActionsCallbackInterface.OnW;
+                @W.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnW;
+                @W.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnW;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -121,6 +146,9 @@ public class @AccessPauseMenu : IInputActionCollection, IDisposable
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
+                @W.started += instance.OnW;
+                @W.performed += instance.OnW;
+                @W.canceled += instance.OnW;
             }
         }
     }
@@ -128,5 +156,6 @@ public class @AccessPauseMenu : IInputActionCollection, IDisposable
     public interface IGameActions
     {
         void OnMenu(InputAction.CallbackContext context);
+        void OnW(InputAction.CallbackContext context);
     }
 }
