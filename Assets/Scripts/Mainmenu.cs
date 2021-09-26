@@ -7,16 +7,16 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject confirmExit;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ToggleExitConfirm();
-        }
-    }
+    /*   private void Update()
+       {
+           if (Input.GetKeyDown(KeyCode.Escape))
+           {
+               ToggleExitConfirm();
+           }
+       }*/
     public void StartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void Exit()
