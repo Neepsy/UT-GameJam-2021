@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Compactor : MonoBehaviour
 {
@@ -81,7 +82,7 @@ public class Compactor : MonoBehaviour
             if(timeElapsed >= time)
             {
                 started = false;
-                Debug.Log("Game Over!!!!");
+                GameManager.get().loadScene(SceneManager.GetActiveScene().buildIndex, false);
             }
         }
     }
@@ -91,5 +92,10 @@ public class Compactor : MonoBehaviour
         //Time delay before starting
         yield return new WaitForSecondsRealtime(delay);
         started = true;
+    }
+
+    public void stopCompactor()
+    {
+        started = false;
     }
 }
