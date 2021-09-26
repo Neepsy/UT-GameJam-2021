@@ -115,6 +115,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(time / 2f);
         SceneManager.LoadScene(sceneIndex);
         yield return new WaitForSecondsRealtime(time / 2f);
+        player = GameObject.FindGameObjectWithTag("Player");
+        checkpoint = player.transform.position;
+
 
         if (fadeCanvas ?? fadeWhiteImage ?? fadeBlackImage ?? false)
         {
