@@ -1,13 +1,20 @@
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] public Sound[] sounds;
     public static AudioManager instance;
 
+    //private AccessPauseMenu actionMap;
+    //private InputAction walkW;
+
     void Awake()
     {
+        //actionMap = new AccessPauseMenu();
+        //walkW
+
         if (instance == null)
             instance = this;
         else
@@ -34,6 +41,20 @@ public class AudioManager : MonoBehaviour
         Play("Music");
     }
 
+    private void Footsteps()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Debug.Log("Playing footsteps");
+            Play("Footstep SFX");
+        }
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            Debug.Log("Stopped footsteps");
+            Stop("Footstep SFX");
+        }
+    }
+
     public void Play(string name)
     {
         Sound s = System.Array.Find(sounds, sound => sound.name == name);
@@ -42,7 +63,8 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("ERROR Audio: " + name + " not found");
             return;
         }
-        s.source.PlayOneShot(s.source.clip);
+        if(!s.source.isPlaying)
+            s.source.Play();
     }
 
     public void Stop(string name)
