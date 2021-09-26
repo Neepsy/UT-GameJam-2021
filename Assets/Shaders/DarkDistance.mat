@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestShader
+  m_Name: DarkDistance
   m_Shader: {fileID: -6465566751694194690, guid: 1d3a2096af24d10478bdde9f084a8790, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
