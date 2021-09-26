@@ -73,6 +73,7 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+		private AudioManager audioManager;
 		private void Awake()
 		{
 			// get a reference to our main camera
@@ -80,6 +81,7 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+			audioManager = GameObject.FindObjectOfType<AudioManager>();
 		}
 
 		private void Start()
