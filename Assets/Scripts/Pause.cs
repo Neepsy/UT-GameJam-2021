@@ -11,13 +11,13 @@ public class Pause : MonoBehaviour
     [SerializeField]
     private bool paused = false;
 
-    void Update()
+  /*  void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePauseScreen();
         }
-    }
+    }*/
 
     public void TogglePauseScreen()
     {
@@ -34,7 +34,7 @@ public class Pause : MonoBehaviour
         }
     }
 
-    void ReturnToMainMenu()
+    public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(0);
     }

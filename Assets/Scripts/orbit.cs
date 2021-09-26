@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Orbit : MonoBehaviour
+public class orbit : MonoBehaviour
 {
     public Transform target;
 
@@ -13,4 +13,5 @@ public class Orbit : MonoBehaviour
         transform.RotateAround(target.position, Vector3.up, speed * Time.deltaTime);
 
     }
+
 }
