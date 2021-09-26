@@ -19,6 +19,7 @@ public class TeleportingPlatform : MonoBehaviour
     private Vector3 startPoint;
     private bool isPlaying = false;
 
+    #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         UnityEditor.Handles.color = Color.green;
@@ -32,6 +33,7 @@ public class TeleportingPlatform : MonoBehaviour
         }
         
     }
+    #endif
 
     void Awake()
     {
