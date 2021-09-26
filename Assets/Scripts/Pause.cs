@@ -8,6 +8,8 @@ public class Pause : MonoBehaviour
 {
     [SerializeField]
     private GameObject pauseScreen;
+  
+public GameObject pausebutton; 
     [SerializeField]
     private bool paused = false;
 
@@ -23,6 +25,8 @@ public class Pause : MonoBehaviour
     {
         paused = !paused;
         pauseScreen.SetActive(!pauseScreen.activeSelf);
+        pausebutton.SetActive(false);
+        
 
         if (!paused)
         {
