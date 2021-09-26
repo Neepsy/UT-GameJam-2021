@@ -30,6 +30,7 @@ public class LevelChanger : MonoBehaviour
                 comp.stopCompactor();
             }
             GameManager.get().loadScene(sceneIndex, fadeColor == fadeType.white ? true : false);
+            GameObject.FindObjectOfType<AudioManager>().Play("Teleport SFX");
         }
     }
 }
