@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(Collider))]
 public class LevelChanger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Tooltip("Index of next scene to load (Check File -> Build Settings)")]
+    public int sceneIndex = 1;
+
+    public enum fadeType
     {
-        
+        white,
+        black
     }
 
-    // Update is called once per frame
-    void Update()
+    public fadeType fadeColor = fadeType.white;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GameManager.get().loadScene(sceneIndex, fadeColor == fadeType.white ? true : false);
+        }
     }
 }
